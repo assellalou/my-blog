@@ -21,11 +21,12 @@ const Layout = ({ children }) => {
           body {
             margin: 0;
             color: #555;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-              Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
-              sans-serif;
+            font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
+              "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
+              sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+              "Segoe UI Symbol", "Noto Color Emoji";
             font-size: 18px;
-            line-height: 1.4;
+            line-height: 1.5;
             > div {
               margin: 0;
             }
@@ -38,7 +39,7 @@ const Layout = ({ children }) => {
           h5,
           h6 {
             color: #222;
-            line-height: 1.1;
+            line-height: 1.3;
             + * {
               margin-top: 0.5rem;
             }
@@ -62,6 +63,10 @@ const Layout = ({ children }) => {
         <html lang="en" />
         <title>{title}</title>
         <meta name="description" content={description} />
+        <meta
+          name="keywords"
+          content="assellalou, Assellalou, assellalou.com, assellalou mohammed,mohammed assellalou,, assellalou blog, assellalou portfolio, assellalou website"
+        />
       </Helmet>
       <Header />
       <main

@@ -2,6 +2,7 @@ import React from "react"
 import styled from "@emotion/styled"
 import { css } from "@emotion/core"
 import { Link } from "gatsby"
+import logo from "../images/logo.png"
 
 const NavLink = styled(Link)`
   color: #222;
@@ -9,11 +10,26 @@ const NavLink = styled(Link)`
   font-weight: ${props => props.fontWeight || "normal"};
   line-height: 1;
   margin: 0 0.5rem 0 0;
-  padding: 0.24rem;
+  padding: 0.25rem;
   text-decoration: none;
   &.active {
-    border-bottom: 2px solid #222;
+    background-image: linear-gradient(to left, #c471f5 0%, #fa71cd 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
+  &:last-of-type {
+    margin-right: 0;
+  }
+`
+const RefLink = styled.a`
+  color: #222;
+  font-size: 1rem;
+  font-weight: ${props => props.fontWeight || "normal"};
+  line-height: 1;
+  margin: 0 0.5rem 0 0;
+  padding: 0.25rem;
+  text-decoration: none;
   &:last-of-type {
     margin-right: 0;
   }
@@ -21,30 +37,64 @@ const NavLink = styled(Link)`
 const Header = () => (
   <header
     css={css`
-      background: #eee;
       border-bottom: 1px solid #ddd;
       display: flex;
-      justify-content: space-between;
-      padding: 0.5rem calc((100vw - 550px - 0.5rem) / 2);
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem calc((100vw - 900px - 0.5rem) / 2);
     `}
   >
-    <NavLink to="/" fontWeight="bold">
-      Assellalou
-    </NavLink>
-    <nav
+    <div
       css={css`
-        margin-top: 0;
+        margin: 1rem 0 1rem 0;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
       `}
     >
-      <NavLink to="/" activeClassName="active">
-        Home
+      <NavLink to="/" fontWeight="bold">
+        <img src={logo} alt="logo" />
       </NavLink>
-      <NavLink to="/about" activeClassName="active">
-        About
-      </NavLink>
-      <NavLink to="/contact" activeClassName="active">
-        Contact
-      </NavLink>
+      <RefLink href="#"></RefLink>
+    </div>
+    <nav
+      css={css`
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin: 0;
+      `}
+    >
+      <div
+        className="website-nav"
+        css={css`
+          margin: 0;
+        `}
+      >
+        <NavLink to="/" activeClassName="active">
+          Home
+        </NavLink>
+        <NavLink to="/about" activeClassName="active">
+          About
+        </NavLink>
+        <NavLink to="/contact" activeClassName="active">
+          Contact
+        </NavLink>
+      </div>
+      <div
+        className="references"
+        css={css`
+          margin: 0;
+        `}
+      >
+        <RefLink href="https://github.com/assellalou">Github</RefLink>
+        <RefLink href="https://twitter.com/massellalou">Twitter</RefLink>
+        <RefLink href="https://instagram.com/massellalou">Instagram</RefLink>
+      </div>
     </nav>
   </header>
 )
