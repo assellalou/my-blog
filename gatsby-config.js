@@ -1,12 +1,13 @@
 module.exports = {
   siteMetadata: {
     title: `Assellalou`,
-    description: `Learn gatsby and build your blog ❤`,
-    author: `@assellalou`,
+    description: `Assellalou personal website.`,
+    author: `Assellalou`,
   },
   plugins: [
     `gatsby-plugin-emotion`,
     `gatsby-plugin-react-helmet`,
+    `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -20,6 +21,7 @@ module.exports = {
         defaultLayouts: {
           default: require.resolve(`./src/components/layout.js`),
         },
+        gatsbyRemarkPlugins: [{ resolve: `gatsby-remark-images` }],
       },
     },
   ],

@@ -1,4 +1,4 @@
-import { graphql, StaticQuery, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 
 const usePosts = () => {
   const data = useStaticQuery(graphql`
@@ -9,6 +9,7 @@ const usePosts = () => {
             title
             slug
             author
+            date
           }
           excerpt
         }
@@ -20,6 +21,7 @@ const usePosts = () => {
     title: post.frontmatter.title,
     autho: post.frontmatter.author,
     slug: post.frontmatter.slug,
+    date: post.frontmatter.date,
     excerpt: post.excerpt,
   }))
 }
