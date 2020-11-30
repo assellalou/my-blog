@@ -55,7 +55,7 @@ const Header = () => (
       `}
     >
       <NavLink to="/" fontWeight="bold">
-        <img src={logo} alt="logo" />
+        <img src={logo} alt="logo" style={{ maxWidth: "100%" }} />
       </NavLink>
       <RefLink href="#"></RefLink>
     </div>
@@ -91,9 +91,8 @@ const Header = () => (
           margin: 0;
         `}
       >
-        <RefLink href="https://github.com/assellalou">Github</RefLink>
-        <RefLink href="https://twitter.com/massellalou">Twitter</RefLink>
-        <RefLink href="https://instagram.com/massellalou">Instagram</RefLink>
+        {/* <RefLink href="https://github.com/assellalou">Github</RefLink>
+        <RefLink href="https://twitter.com/massellalou">Twitter</RefLink> */}
       </div>
     </nav>
   </header>
