@@ -1,24 +1,23 @@
 import React from "react"
 import { graphql } from "gatsby"
-import { MDXRenderer } from "gatsby-plugin-mdx"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import Layout from "../components/layout"
 import ReadLink from "../components/read-link"
+import Seo from "../components/seo"
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     mdx(frontmatter: { slug: { eq: $slug } }) {
       frontmatter {
         title
         author
         date
       }
-      body
     }
   }
 `
 
-const PostTemplate = ({ data: { mdx: post } }) => (
+const PostTemplate = ({ data: { mdx: post }, children }) => (
   <Layout>
     <h1>{post.frontmatter.title}</h1>
     <p
@@ -35,8 +34,13 @@ const PostTemplate = ({ data: { mdx: post } }) => (
     >
       {new Date(post.frontmatter.date).toDateString()}
     </p>
-    <MDXRenderer>{post.body}</MDXRenderer>
+    {children}
     <ReadLink to="/">&larr; Go back home</ReadLink>
   </Layout>
 )
+
+export const Head = ({ data: { mdx: post } }) => (
+  <Seo title={post.frontmatter.title} />
+)
+
 export default PostTemplate

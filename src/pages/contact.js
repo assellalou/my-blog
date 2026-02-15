@@ -1,18 +1,14 @@
 import React from "react"
-import { Link } from "gatsby"
 import { css } from "@emotion/react"
 import Layout from "../components/layout"
+import { Link } from "gatsby"
 import Seo from "../components/seo"
 
-const AboutPage = () => (
+const ContactPage = () => (
   <Layout>
-    <h1
-      css={css`
-        margin-bottom: 2.5rem;
-      `}
-    >
-      About
-    </h1>
+    <h1>Contact</h1>
+    <h3>Here is my Email!</h3>
+    <p>collaborate@assellalou.com</p>
     <h3
       css={css`
         margin-top: 1.5rem;
@@ -33,6 +29,6 @@ const AboutPage = () => (
   </Layout>
 )
 
-export const Head = () => <Seo title="About" />
+export const Head = () => <Seo title="Contact" />
 
-export default AboutPage
+export default ContactPage

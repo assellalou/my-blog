@@ -1,10 +1,7 @@
 import React from "react"
-import { Global, css } from "@emotion/core"
-import Helmet from "react-helmet"
+import { Global, css } from "@emotion/react"
 import Header from "./header"
-import useSiteMetadata from "../hooks/use-sitemetadata"
 const Layout = ({ children }) => {
-  const { title, description } = useSiteMetadata()
   return (
     <>
       <Global
@@ -21,10 +18,20 @@ const Layout = ({ children }) => {
           body {
             margin: 0;
             color: #555;
-            font-family: "IBM Plex Sans", -apple-system, BlinkMacSystemFont,
-              "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans",
-              sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
-              "Segoe UI Symbol", "Noto Color Emoji";
+            font-family:
+              "IBM Plex Sans",
+              -apple-system,
+              BlinkMacSystemFont,
+              "Segoe UI",
+              Roboto,
+              "Helvetica Neue",
+              Arial,
+              "Noto Sans",
+              sans-serif,
+              "Apple Color Emoji",
+              "Segoe UI Emoji",
+              "Segoe UI Symbol",
+              "Noto Color Emoji";
             font-size: 18px;
             line-height: 1.5;
             > div {
@@ -59,15 +66,6 @@ const Layout = ({ children }) => {
           }
         `}
       />
-      <Helmet>
-        <html lang="en" />
-        <title>{title}</title>
-        <meta name="description" content={description} />
-        <meta
-          name="keywords"
-          content="assellalou, Assellalou, assellalou.com, assellalou mohammed,mohammed assellalou,, assellalou blog, assellalou portfolio, assellalou website"
-        />
-      </Helmet>
       <Header />
       <main
         css={css`

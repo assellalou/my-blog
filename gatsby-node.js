@@ -3,6 +3,10 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     query {
       allMdx {
         nodes {
+          id
+          internal {
+            contentFilePath
+          }
           frontmatter {
             slug
           }
@@ -19,7 +23,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
   posts.forEach(post => {
     actions.createPage({
       path: post.frontmatter.slug,
-      component: require.resolve(`./src/templates/post.js`),
+      component: `${require.resolve(
+        `./src/templates/post.js`,
+      )}?__contentFilePath=${post.internal.contentFilePath}`,
       context: {
         slug: post.frontmatter.slug,
       },

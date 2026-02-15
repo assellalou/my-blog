@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { css } from "@emotion/core"
+import { css } from "@emotion/react"
 import { Link } from "gatsby"
 import logo from "../images/logo.png"
 
@@ -18,18 +18,6 @@ const NavLink = styled(Link)`
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
   }
-  &:last-of-type {
-    margin-right: 0;
-  }
-`
-const RefLink = styled.a`
-  color: #222;
-  font-size: 1rem;
-  font-weight: ${props => props.fontWeight || "normal"};
-  line-height: 1;
-  margin: 0 0.5rem 0 0;
-  padding: 0.25rem;
-  text-decoration: none;
   &:last-of-type {
     margin-right: 0;
   }
@@ -57,14 +45,13 @@ const Header = () => (
       <NavLink to="/" fontWeight="bold">
         <img src={logo} alt="logo" style={{ maxWidth: "100%" }} />
       </NavLink>
-      <RefLink href="#"></RefLink>
     </div>
     <nav
       css={css`
         width: 100%;
         margin-top: 0;
         display: flex;
-        justify-content: space-between;
+        justify-content: flex-start;
         align-items: center;
         margin: 0;
       `}
@@ -84,15 +71,6 @@ const Header = () => (
         <NavLink to="/contact" activeClassName="active">
           Contact
         </NavLink>
-      </div>
-      <div
-        className="references"
-        css={css`
-          margin: 0;
-        `}
-      >
-        {/* <RefLink href="https://github.com/assellalou">Github</RefLink>
-        <RefLink href="https://twitter.com/massellalou">Twitter</RefLink> */}
       </div>
     </nav>
   </header>
